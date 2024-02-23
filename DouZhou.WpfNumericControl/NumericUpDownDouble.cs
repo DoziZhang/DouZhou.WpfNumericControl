@@ -421,13 +421,13 @@ namespace DouZhou.WpfNumericControl
 
         private static object OnIncrementCoerceValue(DependencyObject d, object baseValue)
         {
-            //增量不能小于1
+            //增量不能≤0
             if (d is NumericUpDownDouble numeric)
             {
                 double value = (double)baseValue;
                 if (value <= 0)
                 {
-                    //增量不能小于1（整数类型）
+                    //增量不能≤0（整数类型）
                     return (double)1;
                 }
                 return value;

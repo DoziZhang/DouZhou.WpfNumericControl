@@ -404,13 +404,13 @@ namespace DouZhou.WpfNumericControl
 
         private static object OnIncrementCoerceValue(DependencyObject d, object baseValue)
         {
-            //增量不能小于1
+            //增量不能≤0
             if (d is NumericUpDownSByte numeric)
             {
                 sbyte value = (sbyte)baseValue;
                 if (value <= 0)
                 {
-                    //增量不能小于1（整数类型）
+                    //增量不能≤0（整数类型）
                     return (sbyte)1;
                 }
                 return value;

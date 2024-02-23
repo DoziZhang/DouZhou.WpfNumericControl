@@ -42,8 +42,8 @@ namespace DouZhou.WpfNumericControl
 
         protected override void DecButton_Execute(object obj)
         {
-            //减少按钮执行
-            var value = Value - Increment;
+            //减少按钮执行(鼠标滚轮操作使会溢出）
+            var value = Value < ulong.MinValue + Increment ? ulong.MinValue : Value - Increment;
             if (value < Minimum)
             {
                 //小于最小值时，设置为最小值
@@ -57,8 +57,8 @@ namespace DouZhou.WpfNumericControl
 
         protected override void IncButton_Execute(object obj)
         {
-            //增加按钮执行
-            var value = Value + Increment;
+            //增加按钮执行(鼠标滚轮操作使会溢出）
+            var value = Value > ulong.MaxValue - Increment ? ulong.MaxValue : Value + Increment;
             if (value > Maximum)
             {
                 //大于最大值时，设置为最大值
@@ -396,13 +396,13 @@ namespace DouZhou.WpfNumericControl
 
         private static object OnIncrementCoerceValue(DependencyObject d, object baseValue)
         {
-            //增量不能小于1
+            //增量不能≤0
             if (d is NumericUpDownUInt64 numeric)
             {
                 ulong value = (ulong)baseValue;
                 if (value <= 0)
                 {
-                    //增量不能小于1（整数类型）
+                    //增量不能≤0（整数类型）
                     return (ulong)1;
                 }
                 return value;

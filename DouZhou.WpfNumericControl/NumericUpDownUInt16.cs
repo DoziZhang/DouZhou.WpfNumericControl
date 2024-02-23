@@ -389,13 +389,13 @@ namespace DouZhou.WpfNumericControl
 
         private static object OnIncrementCoerceValue(DependencyObject d, object baseValue)
         {
-            //增量不能小于1
+            //增量不能≤0
             if (d is NumericUpDownUInt16 numeric)
             {
                 ushort value = (ushort)baseValue;
                 if (value <= 0)
                 {
-                    //增量不能小于1（整数类型）
+                    //增量不能≤0（整数类型）
                     return (ushort)1;
                 }
                 return value;
