@@ -1,0 +1,2 @@
+# DouZhou.WpfNumericControl
+参考HandyControl中NumericUpDown控件创建的数值选择控件（不同数值类型使用不同控件，不再像原控件一样byte数值绑定到Value属性时使用转换器），如Byte对应NumericUpDownByte控件，int对应NumericUpDownInt32
