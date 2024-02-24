@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\BooleanReverseConverter.cs" />
-    <Compile Include="Converters\StringNullOrEmptyToVisibilityConverter.cs" />
+    <Compile Include="Converters\String2VisibilityConverter.cs" />
     <Compile Include="IconElement.cs" />
     <Compile Include="INumericUpDown.cs" />
     <Compile Include="NumericUpDownBase.cs" />

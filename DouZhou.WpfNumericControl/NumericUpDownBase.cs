@@ -89,6 +89,9 @@ namespace DouZhou.WpfNumericControl
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericUpDownBase), new FrameworkPropertyMetadata(typeof(NumericUpDownBase)));
             HorizontalContentAlignmentProperty.OverrideMetadata(typeof(NumericUpDownBase), new FrameworkPropertyMetadata(HorizontalAlignment.Center));
             VerticalContentAlignmentProperty.OverrideMetadata(typeof(NumericUpDownBase), new FrameworkPropertyMetadata(VerticalAlignment.Center));
+            //设置默认边框
+            BorderBrushProperty.OverrideMetadata(typeof (NumericUpDownBase), new FrameworkPropertyMetadata(new SolidColorBrush(Color.FromRgb(224,224,224))));
+            BorderThicknessProperty.OverrideMetadata(typeof(NumericUpDownBase), new FrameworkPropertyMetadata(new Thickness((double)1.0)));
         }
         #region 要求子类重写的功能
         /// <summary>

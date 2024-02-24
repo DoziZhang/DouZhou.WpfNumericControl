@@ -36,8 +36,21 @@ namespace DouZhou.WpfNumericControl
         /// </summary>
         public static readonly DependencyProperty WatermarkProperty =
             DependencyProperty.Register("Watermark", typeof(string), typeof(WatermarkTextBox), new PropertyMetadata(string.Empty));
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnGotFocus(RoutedEventArgs e)
+        {
+            base.OnGotFocus(e);
+            if (IsEnabled)
+            {
+                if (!string.IsNullOrEmpty(Text))
+                {
+                    Select(0, Text.Length);
+                }
+            }
+        }
 
     }
 }
