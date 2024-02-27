@@ -48,6 +48,10 @@ namespace DouZhou.WpfNumericControl
 
         protected override void DecButton_Execute(object obj)
         {
+            if (!IsEnabled || IsReadOnly)
+            {
+                return;
+            }
             //减少按钮执行
             //由于值是Byte类型，加减操作会自动转换为Int32类型，所以需要强制转换
             var value = Value - Increment;
@@ -64,6 +68,10 @@ namespace DouZhou.WpfNumericControl
 
         protected override void IncButton_Execute(object obj)
         {
+            if (!IsEnabled || IsReadOnly)
+            {
+                return;
+            }
             //增加按钮执行
             //由于值是Byte类型，加减操作会自动转换为Int32类型，所以需要强制转换
             var value = Value + Increment;

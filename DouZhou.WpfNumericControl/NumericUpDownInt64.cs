@@ -38,6 +38,10 @@ namespace DouZhou.WpfNumericControl
 
         protected override void DecButton_Execute(object obj)
         {
+            if (!IsEnabled || IsReadOnly)
+            {
+                return;
+            }
             //减少按钮执行(鼠标滚轮操作使会溢出）
             var value = Value < long.MinValue + Increment ? long.MinValue : Value - Increment;
             if (value < Minimum)
@@ -53,6 +57,10 @@ namespace DouZhou.WpfNumericControl
 
         protected override void IncButton_Execute(object obj)
         {
+            if (!IsEnabled || IsReadOnly)
+            {
+                return;
+            }
             //增加按钮执行(鼠标滚轮操作使会溢出）
             var value = Value > long.MaxValue - Increment ? long.MaxValue : Value + Increment;
             if (value > Maximum)

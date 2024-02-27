@@ -40,6 +40,10 @@ namespace DouZhou.WpfNumericControl
 
         protected override void DecButton_Execute(object obj)
         {
+            if (!IsEnabled || IsReadOnly)
+            {
+                return;
+            }
             //减少按钮执行
             var value = Value - Increment;
             if (value < Minimum)
@@ -55,6 +59,10 @@ namespace DouZhou.WpfNumericControl
 
         protected override void IncButton_Execute(object obj)
         {
+            if (!IsEnabled || IsReadOnly)
+            {
+                return;
+            }
             //增加按钮执行
             var value = Value + Increment;
             if (value > Maximum)
