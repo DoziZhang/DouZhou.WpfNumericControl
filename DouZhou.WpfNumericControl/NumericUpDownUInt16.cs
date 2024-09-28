@@ -207,7 +207,7 @@ namespace DouZhou.WpfNumericControl
 
         protected override void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as TextBox).Select((sender as TextBox).Text.Length, 0);
+            //(sender as TextBox).Select((sender as TextBox).Text.Length, 0);
         }
 
 
